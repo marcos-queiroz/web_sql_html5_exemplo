@@ -7,7 +7,22 @@ Utilizando o bootstrap 4 para definir o Lyout.
 
 Exemplo em funcionamento: http://beecoffee.com.br/websql/
 
-Creditos: 
+Browser Support
+---------------
+
+fonte: http://caniuse.com/#feat=sql-storage
+
+* Safari 3.1+
+* Chrome 4.0+
+* Opera 10.5 +
+* iOS Safari 3.2+
+* Opera Mobile 11.0+
+* Android 2.1+ (unless pulled by handset maker D: )
+
+Requerido jQuery 1.5+. ou superior 
+
+
+##Creditos: 
 Diego Cavalca que demonstra o funcionamento em APPs desenvolvidos utilizando o IntelXDK
 https://www.udemy.com/minicurso-intel-xdk/
 
