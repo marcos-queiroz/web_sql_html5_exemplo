@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WEB SQL HTML5</title>
+
+    <meta name="author" content="Marcos Queiroz">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/main.css" >
+
+  </head>
+  <body>
+    
+    <div class="container">
+    	<div class="row">
+    		<header class="col-md-12 card card-block">
+    			<h1 class="card-title">Clientes</h1>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<button id="relatorio" onclick="openRealatorio();" class="btn btn-success card-link">
+							Gerar Relatório
+						</button>
+						<button onclick="openPagina('cadastrar.html');" class="btn btn-primary card-link">
+							Cadastrar
+						</button>
+						<button onclick="resetBD();" class="btn btn-danger card-link">
+							Reset BD
+						</button>
+					</div>
+				</div>
+
+    		</header>
+    	</div> 
+
+    	<div id="divDinamica"></div>  	
+    </div>
+
+    <!-- Loader -->  
+    <div id="divCarregando" class="progresso">
+        <div class="barra">
+            <div class="aguarde">
+                <!-- Mensagem do carregamento -->
+                <p>Aguarde carregando...</p>
+                <!-- Barre de Progresso ou Icone do carregamento -->
+                <progress class="progress progress-striped progress-animated" value="25" max="100"></progress>             
+            </div>
+        </div>
+    </div>
+    <!-- Loader -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
+    <script type="application/javascript" src="js/mydb.js"></script>
+    <script type="application/javascript" src="js/main.js"></script>
+    
+    <script>
+    	//Exibe a DIV
+		$("#divCarregando").show();
+
+    	// Carregar informações ao iniciar app...
+    	$(document).ready(function() {
+    		
+		    // Quando a página estiver totalmente carregada, esconde a DIV
+		    $('#divCarregando').fadeOut('slow');
+
+
+    		// Iniciar banco de dados local (mydbJS)
+            console.log("mydb.initialize()");
+            mydb.initialize(function(status){
+                // Caso não se conecte...
+                if(status == false){
+                    console.log("Não foi possível se conectar ao BD.");
+                }else{
+                	console.log("Conectado ao BD.");
+                }
+            });
+    	});
+    </script>
+  </body>
+</html>
