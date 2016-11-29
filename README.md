@@ -5,11 +5,14 @@ Interessante o seu uso em aplicativos Web, ou híbridos usando Cordova, pois sua
 
 Utilizando o bootstrap 4 para definir o Lyout.
 
+Exemplo em funcionamento: http://beecoffee.com.br/websql/
+
 Creditos: 
 Diego Cavalca que demonstra o funcionamento em APPs desenvolvidos utilizando o IntelXDK
 https://www.udemy.com/minicurso-intel-xdk/
 
 demais: 
+
 http://codigofonte.uol.com.br/artigos/trabalhando-com-o-web-sql-database-do-html5
 
 https://www.html5rocks.com/pt/features/storage
