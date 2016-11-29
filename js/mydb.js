@@ -1,3 +1,10 @@
+/**
+*
+* Credito Diego Cavalca
+* site: http://diegocavalca.com/
+*
+*/
+
 
 window.mydb =  {
     
@@ -5,7 +12,7 @@ window.mydb =  {
     DB_NAME: "DATABASE_EXAMPLE",
     DB_VERSION: "1.0",
     DB_DESCRIPTION: "Description of DB here...",
-    DB_SIZE: 1*1024*1024,
+    DB_SIZE: 5*1024*1024, // 5 MB
     DB_TABLES: [
         {
             "table":"cliente",
