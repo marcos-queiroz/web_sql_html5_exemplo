@@ -5,7 +5,7 @@ Interessante o seu uso em aplicativos Web, ou híbridos usando Cordova, pois sua
 
 Utilizando o bootstrap 4 para definir o Lyout.
 
-Exemplo em funcionamento: http://beecoffee.com.br/websql/
+Exemplo em funcionamento: http://websql.beecoffee.com.br/
 
 Browser Support
 ---------------
