@@ -28,11 +28,11 @@ window.mydb =  {
     ],
     
     /**  Funções de conexão ao banco de dados local **/
-    initialize: function(){
-        mydb.connect(function() {
+    initialize: function(return){
+        mydb.connect(function(callback) {
             console.log("Conectando ao BD...");
             setTimeout(function () {
-
+		return(callback);
             }, 50);
         });
     },
@@ -181,7 +181,10 @@ window.mydb =  {
             tx.executeSql(sql, [], function (tx, result) {
                 log('Query "'+sql+'" succeed!');
                 callback(result);
-            });
+            },function (SQLError) {
+	      log('Query ERROR.: "'+ SQLError.code+ '" => '+ SQLError.message +' FAIL!');
+	      //    callback(false);
+	    });
         });
     },
     selectAll: function(table, callback) {
@@ -199,10 +202,12 @@ window.mydb =  {
                 log(len + ' rows found');
                 callback(registers);
             });
-        });
+        },function (SQLError) {
+	    log('selectAll ERROR.: "'+ SQLError.code+ '" => '+ SQLError.message +' FAIL!');
+	});
     }, 
     insert: function(table, jsonRegister, callback){
-	    var self = this;
+	var self = this;
         this.db.transaction(function(tx) {
             var columns = [];
             var values = [];
@@ -229,7 +234,9 @@ window.mydb =  {
                 log('New record inserted in table "'+table+'". Key generated is '+id+'');
                 callback(id);
             });
-	    });
+	},function (SQLError) {
+	    log('insert ERROR.: "'+ SQLError.code+ '" => '+ SQLError.message +' FAIL!');
+	});
     },
     update: function(table, jsonFields, key, value, callback){
         var self = this;
@@ -266,9 +273,10 @@ window.mydb =  {
                     log('Error on update: '+tx.message);
                     callback(false);                    
                 }
-            );
-            
-        });
+            );            
+        },function (SQLError) {
+	    log('update ERROR.: "'+ SQLError.code+ '" => '+ SQLError.message +' FAIL!');
+	});
     },
     delete: function(table, key, value, callback){
         this.db.transaction(function(tx, results) {
@@ -283,7 +291,9 @@ window.mydb =  {
                     callback(false);                    
                 }
             );
-	    });
+	},function (SQLError) {
+	    log('delet ERROR.: "'+ SQLError.code+ '" => '+ SQLError.message +' FAIL!');
+	});
     }, 
     /**  FIM das funções de manipulação do banco de dados local **/      
     
